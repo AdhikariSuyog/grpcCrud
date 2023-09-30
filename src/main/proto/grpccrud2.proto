@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example";
+option java_outer_classname = "GrpcCrud2";
+option objc_class_prefix = "HLW";
+
+package com.example;
+
+service GrpcCrud2Service {
+  rpc send (GrpcCrud2Request) returns (GrpcCrud2Reply) {}
+  rpc getStudent(Id) returns (Student){}
+  rpc deleteStudent(Id) returns(GrpcCrud2Reply){}
+  rpc updateStudent(Student) returns(Student){}
+  rpc showAllStudents(Empty) returns (Student2){}
+
+}
+message Empty{}
+
+message Id{
+  int32 id=1;
+}
+
+message Student2{
+  repeated Student students = 1;
+}
+
+message Student{
+  int32 id=1;
+  string name=2;
+  string phone=3;
+
+}
+message GrpcCrud2Request {
+  string name = 1;
+  string phone = 2;
+}
+
+message GrpcCrud2Reply {
+  string message = 1;
+}
+
