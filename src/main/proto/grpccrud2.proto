@@ -8,19 +8,21 @@ option objc_class_prefix = "HLW";
 package com.example;
 
 service GrpcCrud2Service {
-  rpc send (GrpcCrud2Request) returns (GrpcCrud2Reply) {}
+  rpc create (GrpcCrud2Request) returns (GrpcCrud2Reply) {}
   rpc getStudent(Id) returns (Student){}
   rpc deleteStudent(Id) returns(GrpcCrud2Reply){}
   rpc updateStudent(Student) returns(Student){}
   rpc showAllStudents(Empty) returns (Student2){}
 
 }
+//required because rpc "showAllStudents" takes empty argument
 message Empty{}
 
 message Id{
   int32 id=1;
 }
 
+//Array of students
 message Student2{
   repeated Student students = 1;
 }

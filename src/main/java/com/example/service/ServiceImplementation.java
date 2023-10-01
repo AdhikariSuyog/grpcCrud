@@ -38,7 +38,6 @@ public class ServiceImplementation implements Service {
     @Override
     public void deleteStudent(int id) {
         studentRepository.deleteById(id);
-
     }
 
 

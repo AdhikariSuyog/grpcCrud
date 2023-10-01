@@ -25,7 +25,6 @@ public class Mapper {
                     .build();
             student2Builder.addStudents(student);
         }
-
         return student2Builder.build();
     }
 }
